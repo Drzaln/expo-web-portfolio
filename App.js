@@ -46,7 +46,7 @@ export default function App() {
               overflow: "hidden",
             }}>
             <Image
-              source={require("./assets/me.png")}
+              source={require("./assets/me.webp")}
               style={{ height: 170 }}
             />
           </MotiView>
