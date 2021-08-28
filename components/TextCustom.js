@@ -35,7 +35,7 @@ const TextCustom = ({
     return <Text>Loading...</Text>
   } else {
     return (
-      <Text style={{ fontFamily: `Poppins_${weight}`, color, ...style }}>
+      <Text style={[{ fontFamily: `Poppins_${weight}`, color }, style]}>
         {children}
       </Text>
     )
