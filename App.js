@@ -1,36 +1,32 @@
 import "@expo/match-media"
-import { StatusBar } from "expo-status-bar"
 import React from "react"
-import { StyleSheet, View } from "react-native"
-import DesktopCenterFlex from "./components/DesktopCenterFlex"
-import IndonesiaBanner from "./components/IndonesiaBanner"
-import MobileCenterFlex from "./components/MobileCenterFlex"
-import SwitchComponent from "./components/SwitchComponent"
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import TextCustom from "./components/TextCustom"
+import About from "./screens/About"
+import Home from "./screens/Home"
+
+const Stack = createNativeStackNavigator()
+
+const linking = {
+  prefixes: ["https://doddy.vercel.app", "doddy://"],
+  config: {
+    screens: {
+      Home: "/",
+      About: "/about",
+    },
+  },
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style='auto' />
-      <View style={styles.flexHorizontal}>
-        <IndonesiaBanner />
-      </View>
-      <SwitchComponent
-        desktopComponent={<DesktopCenterFlex />}
-        phoneComponent={<MobileCenterFlex />}
-      />
-      <View style={styles.flexHorizontal}>
-        <IndonesiaBanner rotated={true} />
-      </View>
-    </View>
+    <NavigationContainer
+      linking={linking}
+      fallback={<TextCustom>Loading...</TextCustom>}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='About' component={About} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#212529",
-    flexDirection: "row",
-    overflow: "hidden",
-  },
-  flexHorizontal: { flex: 0.05 },
-})

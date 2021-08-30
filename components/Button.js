@@ -5,12 +5,12 @@ import { colors } from "../constant"
 import SwitchComponent from "./SwitchComponent"
 import TextButton from "./TextButton"
 
-const Button = ({ type, width, delay }) => {
+const Button = ({ type, width, delay, onPress }) => {
   return (
     <SwitchComponent
       desktopComponent={
         <View style={styles.container}>
-          <Pressable accessibilityRole='link'>
+          <Pressable onPress={onPress} accessibilityRole='link'>
             <MotiView
               from={{
                 width: 0,
@@ -21,7 +21,10 @@ const Button = ({ type, width, delay }) => {
               style={styles.bar}
             />
           </Pressable>
-          <Pressable accessibilityRole='link' style={styles.textWrapper}>
+          <Pressable
+            onPress={onPress}
+            accessibilityRole='link'
+            style={styles.textWrapper}>
             <MotiView
               from={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -33,7 +36,7 @@ const Button = ({ type, width, delay }) => {
       }
       phoneComponent={
         <View style={styles.mobileContainer}>
-          <Pressable accessibilityRole='link'>
+          <Pressable onPress={onPress} accessibilityRole='link'>
             <MotiView
               from={{
                 width: "0%",
@@ -44,7 +47,10 @@ const Button = ({ type, width, delay }) => {
               style={styles.mobileBar}
             />
           </Pressable>
-          <Pressable accessibilityRole='link' style={styles.mobileTextWrapper}>
+          <Pressable
+            onPress={onPress}
+            accessibilityRole='link'
+            style={styles.mobileTextWrapper}>
             <MotiView
               from={{ opacity: 0 }}
               animate={{ opacity: 1 }}

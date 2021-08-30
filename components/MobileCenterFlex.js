@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native"
 import { MotiView } from "moti"
 import React from "react"
 import { StyleSheet, View } from "react-native"
@@ -6,6 +7,10 @@ import Button from "./Button"
 import TextCustom from "./TextCustom"
 
 const MobileCenterFlex = () => {
+  const navigation = useNavigation()
+  const navigateTo = (screen) => {
+    navigation.navigate(screen)
+  }
   return (
     <View style={styles.centerFlex}>
       <MotiView
@@ -28,7 +33,12 @@ const MobileCenterFlex = () => {
         <TextCustom style={styles.text18}>Flutter</TextCustom>
       </MotiView>
       <View style={styles.buttonContainer}>
-        <Button type='about' width={"85%"} delay={3000} />
+        <Button
+          type='about'
+          width={"85%"}
+          delay={3000}
+          onPress={() => navigateTo("About")}
+        />
         <Button type='experience' width={"95%"} delay={2500} />
         <Button type='myworks' width={"100%"} delay={2000} />
       </View>

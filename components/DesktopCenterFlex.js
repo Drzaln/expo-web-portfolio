@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native"
 import { MotiView } from "moti"
 import React from "react"
 import { Image, StyleSheet, View } from "react-native"
@@ -6,6 +7,10 @@ import Button from "./Button"
 import TextCustom from "./TextCustom"
 
 const DesktopCenterFlex = () => {
+  const navigation = useNavigation()
+  const navigateTo = (screen) => {
+    navigation.navigate(screen)
+  }
   return (
     <View style={styles.centerFlex}>
       <View style={styles.header}>
@@ -44,7 +49,12 @@ const DesktopCenterFlex = () => {
         <View style={styles.buttonFlexRow}>
           <View style={styles.flex022} />
           <View style={styles.buttonWrapper}>
-            <Button type='about' width={406} delay={3000} />
+            <Button
+              type='about'
+              width={406}
+              delay={3000}
+              onPress={() => navigateTo("About")}
+            />
             <Button type='experience' width={664} delay={2500} />
             <Button type='myworks' width={938} delay={2000} />
           </View>
