@@ -23,7 +23,9 @@ export default function App() {
     <NavigationContainer
       linking={linking}
       fallback={<TextCustom>Loading...</TextCustom>}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName='Home'>
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='About' component={About} />
       </Stack.Navigator>

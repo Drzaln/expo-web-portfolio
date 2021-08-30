@@ -5,6 +5,7 @@ import DesktopCenterFlex from "../components/DesktopCenterFlex"
 import IndonesiaBanner from "../components/IndonesiaBanner"
 import MobileCenterFlex from "../components/MobileCenterFlex"
 import SwitchComponent from "../components/SwitchComponent"
+import { colors } from "../constant"
 
 const Home = () => {
   return (
@@ -29,7 +30,7 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#212529",
+    backgroundColor: colors.black,
     flexDirection: "row",
     overflow: "hidden",
   },

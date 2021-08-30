@@ -5,7 +5,7 @@ import { colors } from "../constant"
 import SwitchComponent from "./SwitchComponent"
 import TextButton from "./TextButton"
 
-const Button = ({ type, width, delay, onPress }) => {
+const Button = ({ type, width, delay, onPress, right, renderInsideBar }) => {
   return (
     <SwitchComponent
       desktopComponent={
@@ -44,13 +44,14 @@ const Button = ({ type, width, delay, onPress }) => {
               animate={{ width }}
               delay={delay}
               transition={{ type: "timing", duration: 700 }}
-              style={styles.mobileBar}
-            />
+              style={styles.mobileBar}>
+              {renderInsideBar}
+            </MotiView>
           </Pressable>
           <Pressable
             onPress={onPress}
             accessibilityRole='link'
-            style={styles.mobileTextWrapper}>
+            style={[styles.mobileTextWrapper, { right }]}>
             <MotiView
               from={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
   },
   mobileBar: {
     backgroundColor: colors.white,
+    justifyContent: "center",
     height: 27,
   },
   mobileTextWrapper: {
