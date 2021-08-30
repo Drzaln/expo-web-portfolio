@@ -3,10 +3,10 @@ import React from "react"
 import { Pressable } from "react-native"
 import Icons from "./Icons"
 
-const IconButton = ({ name, onPress, size, color, delay }) => {
+const IconButton = ({ name, onPress, size, color, delay, style }) => {
   if (delay) {
     return (
-      <Pressable onPress={onPress}>
+      <Pressable accessibilityRole='link' style={style} onPress={onPress}>
         <MotiView
           delay={delay}
           from={{ opacity: 0, translateY: 10 }}
@@ -18,7 +18,7 @@ const IconButton = ({ name, onPress, size, color, delay }) => {
     )
   }
   return (
-    <Pressable onPress={onPress}>
+    <Pressable accessibilityRole='link' style={style} onPress={onPress}>
       <Icons name={name} size={size} color={color} />
     </Pressable>
   )

@@ -81,18 +81,10 @@ const MobileAbout = () => {
           />
           <View style={styles.spacer} />
           <IconButton
-            name='twitter'
-            color={colors.grey}
-            size={49}
-            delay={3300}
-            onPress={() => window.open("https://twitter.com/drizaln", "_blank")}
-          />
-          <View style={styles.spacer} />
-          <IconButton
             name='linkedin'
             color={colors.grey}
             size={49}
-            delay={3700}
+            delay={3300}
             onPress={() =>
               window.open("https://www.linkedin.com/in/drzaln/", "_blank")
             }
